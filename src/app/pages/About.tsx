@@ -2,7 +2,7 @@ import React from 'react';
 
 const About: React.FC = () => {
     return (
-        <div style={{ marginTop: '100px', marginLeft: '20%', marginRight: '20%' }}>
+        <div style={{ marginLeft: '20%', marginRight: '20%' }}>
             <h1 style={{ fontSize: '30px', fontWeight: 'bold', fontFamily: 'Sabon', color: '#333', paddingBottom: 25 }}>
                 Hi There! 
             </h1>
