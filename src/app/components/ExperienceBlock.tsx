@@ -17,9 +17,9 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, content, githu
                     href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4 py-2 px-4 bg-[#F4A8C0] text-white rounded-lg font-semibold transition-all duration-200 ease-out hover:bg-[#D98A9B] hover:shadow-inner"
+                    className="absolute top-4 right-4 py-2 px-4 bg-[#FCE7F2] text-white rounded-lg font-semibold transition-all duration-200 ease-out hover:bg-[#D98A9B] hover:shadow-inner"
                     style={{
-                        color: '#FFFFFF', // Ensures white text on button
+                        color: '#000000', // Ensures white text on button
                         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // Regular shadow
                     }}
                 >
