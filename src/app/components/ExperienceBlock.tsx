@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGithub } from 'react-icons/fa';
 
 interface ExperienceBlockProps {
     title: string;
@@ -17,13 +18,13 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, content, githu
                     href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4 py-2 px-4 bg-[#FCE7F2] text-white rounded-lg font-semibold transition-all duration-200 ease-out hover:bg-[#D98A9B] hover:shadow-inner"
+                    className="absolute top-4 right-4 py-2 px-4 bg-[#FCE7F2] text-white rounded-lg transition-all duration-200 ease-out hover:bg-[#D98A9B] hover:shadow-inner flex items-center"
                     style={{
                         color: '#000000', // Ensures white text on button
                         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // Regular shadow
                     }}
                 >
-                    View on GitHub
+                    View on GitHub <FaGithub className="ml-3 text-xl" /> {/* Increase the size of the icon */}
                 </a>
             )}
             <h2 className="text-2xl mb-4">{title}</h2>
