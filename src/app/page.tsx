@@ -16,9 +16,25 @@ export default function Home() {
         return <About />;
       case 'Experience':
         return <Experience />;
-      case 'Services':
-        return <p>We offer a variety of services to meet your needs.</p>;
-      case 'Contact':
+      case 'Passions':
+        return (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <iframe
+              style={{
+                transform: 'scale(0.6)', /* Adjust this value to control the zoom level */
+                transformOrigin: 'center', /* Ensures scaling from the top-left corner */
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                width: '100%', /* Full width inside the container */
+                height: '600px',
+                border: 'none'
+              }}
+              src="https://tanishajain1113.wixsite.com/thekitchendiaries"
+              allowFullScreen
+            />
+          </div>
+        );
+              case 'Contact':
         return <p>Contact us for more information. We're happy to help!</p>;
       default:
         return <p>Welcome to the home page! Here's some random content.</p>;
@@ -52,10 +68,10 @@ export default function Home() {
               Experience
             </a>
             <a
-              onClick={() => setCurrentPage('Services')}
+              onClick={() => setCurrentPage('Passions')}
               className="text-lg cursor-pointer hover:text-blue-500"
             >
-              Services
+              Passions
             </a>
             <a
               onClick={() => setCurrentPage('Contact')}
