@@ -4,24 +4,16 @@ import ExperienceBlock from '../components/ExperienceBlock';
 // List of title-content pairs
 const experiences = [
     {
-        title: "Lavender Box Title",
-        content: "This is a much wider rounded rectangular box with a soft lavender background. You can use it to display more content beautifully across the screen."
+        title: "MIT Schwartzman AirBnb Data Set",
+        content: "During my time at MIT I got to work with a variety of data sets, ranging from AirBnb to Flight Delays and Spam Mails, my goal was to learn about how to go through an ML cycle. I started with data preparation and with the different sets I implemented new ways you create learning models, using both supervised and unsupervised learning tactics. For the AirBnb set, I made a learning model to select which features in a listing were most appealing to customers, and the value that each feature had on the listing's overall marketability."
     },
     {
-        title: "Ocean Blue Box",
-        content: "This box has a calming ocean blue background, ideal for displaying short and impactful messages or quotes."
+        title: "Toolhouse Homepage Designs",
+        content: "I used Google Colab to help me identify which website personalization features were most important to HCPs viewing the site. By looking at the percentages of clicks on the site, conversions, based on different personalization tactics."
     },
     {
-        title: "Sunset Gradient",
-        content: "A vibrant gradient inspired by sunset colors, adding warmth to the content displayed inside."
-    },
-    {
-        title: "Minimalist Black and White",
-        content: "This block embraces a minimalist theme with a sharp black border and clean white interior, suitable for professional use."
-    },
-    {
-        title: "title",
-        content: "content"
+        title: "On Campus",
+        content: "I joined the Dean of Students Appeal Board as a student advisor to champion the importance of Ethical AI Usage in the classroom. In Student Government, we ..."
     }
 ];
 
