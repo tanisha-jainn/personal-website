@@ -4,13 +4,13 @@ const About: React.FC = () => {
     return (
         <div style={{ marginTop: '100px', marginLeft: '20%', marginRight: '20%' }}>
             <h1 style={{ fontSize: '30px', fontWeight: 'bold', fontFamily: 'Sabon', color: '#333', paddingBottom: 25 }}>
-                Welcome! &lt;3
+                Hi There! 
             </h1>
             <p style={{ fontSize: '20px', fontFamily: 'Sabon', paddingBottom: 25 }}>
-                Hey, I'm Anjali! I'm a Scholar of Distinction at Barnard College of Columbia University studying computer science and math. This past summer, I interned at Google Labs in Mountain View where I worked on applied AI features for NotebookLM - an AI-powered learning assistant built on the Gemini API. The feature I implemented was featured in Google's The Keyword blog, and I even got a shout-out from Jeff Dean! The previous summer, I interned on Google Ads in New York City, where I worked on the Advertiser Platform's Recommendations page.
+            I’m Tanisha, an Honors Student at the University of Massachusetts in Boston, currently studying Computer Science and Economics. Throughout my time in college I have garnered a passion for advocacy and machine learning, working on projects that keep me motivated both inside and outside of the classroom.
             </p>
             <p style={{ fontSize: '20px', fontFamily: 'Sabon' }}>
-                In my free time, I enjoy contributing to open-source software projects which has been a fun way to collaborate with and learn from other developers! Among these, I've worked on SSLANG at Columbia University, a functional programming language that allows precise timing control, and Reanimate, a Haskell-built library for animation. I also love taking pictures (check out my photography collection here), singing with Sur (Columbia's South Asian Fusion A Capella Group), going on runs, and trying new food!
+            This semester, I am working with a team at Microsoft’s Cambridge office to help with AI Prompt Efficiency. Our goal is to measure the quality and relevance of prompts in producing desired outcomes. This past summer, I interned at Toolhouse, a life sciences digital agency, where I automated their sales analysis tactics using Google Big Query. Along with that, I was admitted to join a team at MITs Schwarzman College of Computing as a BreakThroughTech AI Fellow. In school, I am an active member of our Undergraduate Student Government, where I serve as Associate Justice. I love getting to support student run organizations around campus, and working closely with faculty to find innovative ways for our community to grow. I hope you enjoy exploring this page to learn more about my diverse interests and project experience!
             </p>
         </div>
     );
