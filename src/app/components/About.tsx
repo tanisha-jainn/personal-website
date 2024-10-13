@@ -15,6 +15,9 @@ const About: React.FC = () => {
             <p style={{ fontSize: '16px', fontFamily: 'Sabon', paddingTop: 25 }}>
             I love getting to support student run organizations around campus, and working closely with faculty to find innovative ways for our community to grow. I hope you enjoy exploring this page to learn more about my diverse interests and project experience!
             </p>
+            <p style={{ fontSize: '16px', fontFamily: 'Sabon', paddingTop: 25 }}>
+            Feel free to reach me at tanisha.jain001@umb.edu ⋆˙⟡♡
+            </p>
         </div>
     );
 };

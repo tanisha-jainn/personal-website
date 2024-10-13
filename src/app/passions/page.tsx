@@ -20,7 +20,7 @@ export default function Gallery() {
   return (
     <div>      
       <p style={{ fontFamily: 'Sabon', marginLeft: "20%", marginRight: "20%", fontSize: '16px', paddingTop: 25 }}>
-      Cooking has always been a big part of my life. I love making food and exploring new restaurants. Below is my blog, The Kitchen Diaries, which I&apos;ve been writing since middle school, along with a gallery of my recent eats. Enjoy♡♡
+      Cooking has always been a big part of my life. I love making food and exploring new restaurants. Below is my blog, The Kitchen Diaries, which I&apos;ve been writing since middle school, along with a gallery of my recent eats. Enjoy ♡♡
       </p>
       <div style={{marginLeft: '5%', marginRight: '5%', width:'90%', justifyContent:'center'}}>
       <KitchenDiariesEmbed />
