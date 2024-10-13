@@ -7,8 +7,8 @@ const experiences = [
         title: "MIT Schwartzman AirBnb Data Set",
         githubUrl: "https://github.com/tanisha-jainn/airbnb-ml-portfolio",
         content: <div>
-            <li>During my time at MIT I got to work with a variety of data sets, ranging from AirBnb to Flight Delays and Spam Mails, my goal was to learn about how to go through an ML cycle.</li> 
-            <li> I started with data preparation and with the different sets I implemented new ways you create learning models, using both supervised and unsupervised learning tactics. </li>
+            <li>During my time at MIT I got to work with a variety of data sets, ranging from AirBnb listings to Flight Delays and Spam Mails, my goal was to learn about how to go through an ML cycle.</li> 
+            <li> I started with data preparation and with the different sets I implemented new ways to create learning models, using both supervised and unsupervised learning tactics. </li>
         <li>For the AirBnb set, I made a learning model to select which features in a listing were most appealing to customers, and the value that each feature had on the listing&apos;s overall marketability.</li>
         </div>
     },
