@@ -9,7 +9,7 @@ const experiences = [
         content: <div>
             <li>During my time at MIT I got to work with a variety of data sets, ranging from AirBnb to Flight Delays and Spam Mails, my goal was to learn about how to go through an ML cycle.</li> 
             <li> I started with data preparation and with the different sets I implemented new ways you create learning models, using both supervised and unsupervised learning tactics. </li>
-        <li>For the AirBnb set, I made a learning model to select which features in a listing were most appealing to customers, and the value that each feature had on the listing's overall marketability.</li>
+        <li>For the AirBnb set, I made a learning model to select which features in a listing were most appealing to customers, and the value that each feature had on the listing&apos;s overall marketability.</li>
         </div>
     },
     {
@@ -24,8 +24,8 @@ const experiences = [
     {
         title: "On Campus",
         content: <div>
-            <li>I serve on the Dean of Students' Ethical AI Board, promoting the responsible use of AI to ensure tools like large language models (LLMs) enhance student success.</li>
-            <li>As the Associate Justice of UMass Boston’s Undergraduate Student Government, I collaborate with my team to provide equitable funding, engage with faculty to meet student
+            <li>I serve on the Dean of Students&apos; Ethical AI Board, promoting the responsible use of AI to ensure tools like large language models (LLMs) enhance student success.</li>
+            <li>As the Associate Justice of UMass Boston&apos;s Undergraduate Student Government, I collaborate with my team to provide equitable funding, engage with faculty to meet student
             needs.</li>
             <li>Along with my university-wide responsibilities, I also manage internal operations by organizing votes and fostering an inclusive, supportive environment for all USG members.</li>
         </div> 

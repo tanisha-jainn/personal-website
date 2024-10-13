@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 interface ExperienceBlockProps {
     title: string;
-    content: string;
+    content: ReactNode;
     githubUrl?: string; // Optional GitHub URL prop
 }
 
