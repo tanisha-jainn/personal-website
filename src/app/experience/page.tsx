@@ -4,6 +4,15 @@ import ExperienceBlock from '../components/ExperienceBlock';
 // List of title-content pairs
 const experiences = [
     {
+        title: "Microsoft Prompt Tuning",
+        githubUrl: "https://github.com/tanisha-jainn/airbnb-ml-portfolio",
+        content: <div>
+            <li>This past fall I worked with</li> 
+            <li> I started with data preparation and with the different sets I implemented new ways to create learning models, using both supervised and unsupervised learning tactics. </li>
+        <li>For the AirBnb set, I made a learning model to select which features in a listing were most appealing to customers, and the value that each feature had on the listing&apos;s overall marketability.</li>
+        </div>
+    },
+    {
         title: "MIT Schwartzman AirBnb Data Set",
         githubUrl: "https://github.com/tanisha-jainn/airbnb-ml-portfolio",
         content: <div>
@@ -22,12 +31,12 @@ const experiences = [
             </div>
     },
     {
-        title: "On Campus",
+        title: "My Time at UMass",
         content: <div>
-            <li>I serve on the Dean of Students&apos; Ethical AI Board, promoting the responsible use of AI to ensure tools like large language models (LLMs) enhance student success.</li>
-            <li>As the Associate Justice of UMass Boston&apos;s Undergraduate Student Government, I collaborate with my team to provide equitable funding, engage with faculty to meet student
+            <li>I served on the Dean of Students&apos; Ethical AI Board, promoting the responsible use of AI to ensure tools like large language models (LLMs) enhance student success.</li>
+            <li>As the Associate Justice of UMass Boston&apos;s Undergraduate Student Government, I collaborated with my team to provide equitable funding, and engaged with faculty to meet student
             needs.</li>
-            <li>Along with my university-wide responsibilities, I also manage internal operations by organizing votes and fostering an inclusive, supportive environment for all USG members.</li>
+            <li>Along with my university-wide responsibilities, I also managed internal operations by organizing votes and fostering an inclusive, supportive environment for all USG members.</li>
         </div> 
     }
 ];
