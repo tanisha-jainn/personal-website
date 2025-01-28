@@ -5,13 +5,12 @@ import ExperienceBlock from '../components/ExperienceBlock';
 const experiences = [
     {
         title: "Microsoft Prompt Tuning",
-        githubUrl: "https://github.com/tanisha-jainn/airbnb-ml-portfolio",
         content: <div>
-            <li>This past fall I worked with</li> 
-            <li> I started with data preparation and with the different sets I implemented new ways to create learning models, using both supervised and unsupervised learning tactics. </li>
-        <li>For the AirBnb set, I made a learning model to select which features in a listing were most appealing to customers, and the value that each feature had on the listing&apos;s overall marketability.</li>
+            <li>At Microsoft, I worked with a team to craft smarter, optimized prompts for LLMs, comparing them with human inputs to boost effectiveness and tackle challenges like gibberish outputs and repetition.</li> 
+            <li>By using BLEU scores to measure quality, we improved AI responses while uncovering room to better evaluate creativity and coherence. It was all about pushing the boundaries of what these models can do!</li>
         </div>
     },
+
     {
         title: "MIT Schwartzman AirBnb Data Set",
         githubUrl: "https://github.com/tanisha-jainn/airbnb-ml-portfolio",
