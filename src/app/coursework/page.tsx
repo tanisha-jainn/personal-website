@@ -5,7 +5,7 @@ export default function Home() {
     <div className="flex flex-col flex-1">
       <main className="flex-1 p-4">
       <div style={{ marginLeft: '20%', marginRight: '20%' }}>
-            <h1 style={{ fontSize: '30px', fontWeight: 'bold', fontFamily: 'Sabon', color: '#333', paddingBottom: 15 }}>
+            <h1 style={{ fontSize: '24px', fontWeight: 'bold', fontFamily: 'Sabon', color: '#333', paddingBottom: 15 }}>
                 Current Coursework at UIUC
             </h1>
             <li style={{ fontSize: '16px', fontFamily: 'Sabon', paddingBottom: 5 }}>
@@ -17,11 +17,11 @@ export default function Home() {
             <li style={{ fontSize: '16px', fontFamily: 'Sabon', paddingBottom: 5 }}>
                 CS 361: Probability and Statistics for CS
             </li>
-            <li style={{ fontSize: '16px', fontFamily: 'Sabon', paddingBottom: 5 }}>
+            <li style={{ fontSize: '16px', fontFamily: 'Sabon', paddingBottom: 10 }}>
                 LING 250: Lingusitic Diversity in the US
             </li>
             
-            <h1 style={{ fontSize: '30px', fontWeight: 'bold', fontFamily: 'Sabon', color: '#333', paddingBottom: 15 }}>
+            <h1 style={{ fontSize: '24px', fontWeight: 'bold', fontFamily: 'Sabon', color: '#333', paddingBottom: 15 }}>
                 Previous Coursework at UMass
             </h1>
             <li style={{ fontSize: '16px', fontFamily: 'Sabon', paddingBottom: 5 }}>
