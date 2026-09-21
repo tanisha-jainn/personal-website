@@ -1,41 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
+'use client';
 import Link from 'next/link';
-
-const Header: React.FC = () => {
-    return (
-        <div>
-        <header className="py-6">
-        <div className="flex flex-col items-center">
-          <div className="mb-4">
-            <Image
-              src="/Logo.jpeg"
-              alt="Logo"
-              width={1826 / 4}
-              height={602 / 4}
-              className="mx-auto"
-            />
-          </div>
-          <nav className="flex gap-8" style={{ fontFamily: 'Sabon' }}>
-            <Link href="/" className="text-lg hover:text-blue-500">
-              Home
-            </Link>
-            <Link href="/experience" className="text-lg hover:text-blue-500">
-              Experience
-            </Link>
-            <Link href="/passions" className="text-lg hover:text-blue-500">
-              Passions
-            </Link>
-            <Link href="/coursework" className="text-lg hover:text-blue-500">
-              Coursework
-            </Link>
-          </nav>
-        </div>
-      </header>
-      </div>
-      );
-};
-
-
-
-export default Header;
+import { usePathname } from 'next/navigation';
+export default function Header({ belowHero = false }: { belowHero?: boolean }) {
+  const pathname = usePathname();
+  if (pathname === '/' && !belowHero) return null;
+  return <header className={`site-header section-wrap${belowHero ? " below-intro-nav" : ""}`}><Link href="/" className="wordmark" aria-label="Tanisha Jain home">tanisha jain</Link><nav aria-label="Main navigation"><Link href="/portfolio" aria-current={pathname.startsWith('/portfolio') ? 'page' : undefined}>work</Link><Link href="/about" aria-current={pathname === '/about' ? 'page' : undefined}>about</Link><Link href="/passions" aria-current={pathname === '/passions' ? 'page' : undefined}>just for joy</Link><a href="mailto:tj32@illinois.edu">say hello <span aria-hidden="true">↗</span></a></nav></header>;
+}
