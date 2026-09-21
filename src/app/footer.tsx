@@ -1,39 +1,4 @@
-import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-
-const Footer: React.FC = () => {
-    return (
-        <div>
-        <footer className="flex justify-center gap-6 py-4 bg-yellow-100">
-        <a
-          href="https://linkedin.com/in/jainntanisha"
-          target="_blank"
-          rel="noreferrer"
-          className="text-2xl text-gray-800 hover:text-blue-700"
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="https://github.com/tanisha-jainn"
-          target="_blank"
-          rel="noreferrer"
-          className="text-2xl text-gray-800 hover:text-black"
-        >
-          <FaGithub />
-        </a>
-        <a
-          href="mailto:tanisha.jain001@umb.edu"
-          className="text-2xl text-gray-800 hover:text-red-600"
-        >
-          <FaEnvelope />
-        </a>
-      </footer>
-      </div>
-      );
-};
-
-
-
-export default Footer;
-
-
+import Link from 'next/link';
+export default function Footer() {
+  return <footer className="site-footer section-wrap"><div className="footer-top"><div><h2>Let’s keep in touch.</h2></div><a className="hello-link" href="mailto:tj32@illinois.edu">Say hello ↗</a></div><div className="footer-bottom"><p>Tanisha Jain</p><div><a href="https://linkedin.com/in/jainntanisha" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/tanisha-jainn" target="_blank" rel="noreferrer">GitHub ↗</a><Link href="/coursework">Coursework</Link></div></div></footer>;
+}

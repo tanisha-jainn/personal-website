@@ -1,0 +1,12 @@
+import type { Project } from '../data/projects';
+
+export default function ProjectVisual({ project }: { project: Project }) {
+  return <div className={`project-visual ${project.theme}`} aria-hidden="true">
+    <span className="visual-caption">{project.visual === 'leadership' ? 'people + possibility' : 'an exploration in ' + (project.visual === 'prompt' ? 'language' : project.visual === 'toolhouse' ? 'relevance' : 'discovery')}</span>
+    {project.visual === 'prompt' && <div className="prompt-art"><div className="mini-window"><div className="window-bar"><i/><i/><i/><span>the prompt notebook</span></div><div className="prompt-line"><b>you</b><p>How can we ask a better question?</p></div><div className="prompt-line response"><b>↳</b><p>Start with a little more context.<span className="cursor"/></p></div><div className="mini-tags"><span>clarity</span><span>context</span><span>coherence</span></div></div><span className="art-sticker">words matter ✧</span></div>}
+    {project.visual === 'toolhouse' && <div className="web-art"><div className="mini-window web-window"><div className="window-bar"><i/><i/><i/><span>a more relevant experience</span></div><div className="web-body"><div className="web-sidebar"><span/><span/><span/></div><div className="web-content"><div className="web-headline">Made for<br/><em>your context.</em></div><div className="skeleton-line"/><div className="skeleton-line short"/><div className="web-button">Explore →</div></div></div></div><div className="floating-note">the right content,<br/>for the right person.</div></div>}
+    {project.visual === 'airbnb' && <div className="stay-art"><div className="stay-card"><div className="house-drawing"><span className="roof"/><span className="house"><i/><i/><b/></span><span className="sun"/></div><div className="stay-details"><strong>A little place to stay.</strong><span>What makes it feel like the one?</span><div className="mini-tags"><span>location</span><span>amenities</span></div></div></div><span className="art-sticker">looking closer ↗</span></div>}
+    {project.visual === 'leadership' && <div className="people-art"><div className="note-paper"><span>a few things I care about</span><p>✓ voices that are heard</p><p>✓ thoughtful decisions</p><p>✓ technology with care</p><span className="note-flower">✳</span></div><span className="art-sticker">better, together.</span></div>}
+    <span className="visual-footnote">{project.visual === 'leadership' ? 'a visual note' : 'concept illustration'}</span>
+  </div>;
+}
