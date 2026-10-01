@@ -7,13 +7,13 @@ import styles from './StitchedIntro.module.css';
 const figtree = Figtree({ subsets: ['latin'], weight: ['500', '600'] });
 
 const greeting = "hi! i'm tanisha, a senior at uiuc studying computer science + linguistics.";
-const lead = 'i like making things that are useful, accessible, and a little bit lovely. so far that has meant:';
+const lead = "i like making things that are useful, accessible, and a little bit lovely. so far, i've:";
 const threads = [
-  'working across product, marketing & engineering, from ai prompt research at microsoft to ml personalization at toolhouse',
-  'training ml models as a break through tech ai fellow at mit, and pushing for responsible ai in education as a student leader',
-  'cooking for my food blog, filling way too many embroidery hoops, and fussing over my morning matcha',
+  "grown sign-ups 16% by repositioning coinbase advanced's homepage as a product marketing intern",
+  "shipped ai video ads to 1M+ viewers at poshmark and pm'd a 92%-precision vision model at trajektory",
+  "built niche, a discovery engine for indie fashion brands, and researched llm prompting for microsoft with mit's break through tech ai",
 ];
-const closing = "different threads, one piece. that's why everything here is stitched together.";
+const closing = "off the clock: cooking, embroidery, matcha, and the eagles. different threads, one piece. that's why everything here is stitched together.";
 
 // Where the thread passes under each column (0–1 along its length), so a column lights up as the thread reaches it.
 const ARRIVALS = [0.17, 0.5, 0.83];
