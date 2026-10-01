@@ -1,0 +1,38 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* A tiny red X drawn with two crossed bars. */
+.stitch {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  opacity: 0;
+  animation: dust 0.6s ease-out forwards;
+}
+.stitch::before,
+.stitch::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1.4px;
+  height: 100%;
+  margin-left: -0.7px;
+  border-radius: 1px;
+  background: #d2342c;
+  transform: rotate(45deg);
+}
+.stitch::after {
+  transform: rotate(-45deg);
+}
+
+@keyframes dust {
+  0% { opacity: 0.4; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--drift), 7px) scale(0.5); }
+}
