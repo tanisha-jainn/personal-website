@@ -60,4 +60,4 @@ html{scroll-padding-top:110px}
 
 
 /* A red cross-stitched pixel arrow, everywhere. */
-html,html *{cursor:url('/stitch-cursor.svg') 2 2,auto}
+html,html *{cursor:url('/stitch-cursor.svg') 1 1,auto}
