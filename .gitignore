@@ -35,3 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .venv/
+
+# Raw video exports; compressed copies live in public/work (see scripts/compress-videos.sh)
+media-originals/
