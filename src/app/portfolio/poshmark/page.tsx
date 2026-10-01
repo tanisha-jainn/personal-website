@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Figtree } from 'next/font/google';
 import CaseVideo from '../../components/CaseVideo';
-import styles from './page.module.css';
+import styles from '../case.module.css';
 
 const figtree = Figtree({ subsets: ['latin'], weight: ['400', '500', '600'] });
 

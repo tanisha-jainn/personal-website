@@ -136,3 +136,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* A title card for work without visuals yet. */
+.coverTitle {
+  font: 34px/1 Mondwest, var(--serif);
+  color: var(--thread);
+}

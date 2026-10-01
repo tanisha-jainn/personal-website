@@ -27,7 +27,9 @@ export default function WorkSection() {
       {shown.map(piece => <li key={piece.slug}>
         <Link href={`/portfolio/${piece.slug}`} className={styles.card}>
           <span className={styles.cover} aria-hidden="true">
-            {piece.cover.phones.map(src => <span key={src} className={styles.phone} style={{ backgroundImage: `url(${src})` }} />)}
+            {'phones' in piece.cover
+              ? piece.cover.phones.map(src => <span key={src} className={styles.phone} style={{ backgroundImage: `url(${src})` }} />)
+              : <span className={styles.coverTitle}>{piece.cover.title}</span>}
           </span>
           <h3>{piece.name}</h3>
           <p>{piece.blurb}</p>
