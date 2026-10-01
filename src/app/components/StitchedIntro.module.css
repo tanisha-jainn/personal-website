@@ -1,0 +1,158 @@
+/* A tall section with a pinned panel: scrolling through it sews the thread across the three columns. */
+.intro {
+  --ink: #64646a;
+  --faint: #b4b4b9;
+  --dark: #3c3c41;
+  --thread: #c4463f;
+  height: 260svh;
+  background: #fff;
+}
+.pinned {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(40px, 8vh, 80px);
+  width: min(760px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.greeting {
+  position: relative;
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.space {
+  visibility: hidden;
+}
+.typed {
+  position: absolute;
+  inset: 0;
+}
+.caret {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.85em;
+  margin-left: 2px;
+  vertical-align: -0.08em;
+  background: var(--thread);
+}
+
+.module {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.lead {
+  margin: 0;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+}
+
+/* The thread: a red running stitch revealed along its length by a mask, with a knot at each column. */
+.thread {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.stitches {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 12 7;
+}
+.reveal {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 14;
+  stroke-dasharray: 1;
+}
+.knot {
+  fill: var(--thread);
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+.knot[data-tied='true'] {
+  transform: scale(1);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 4vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.columns li {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--faint);
+  transition: color 0.4s ease;
+}
+.columns li[data-active='true'] {
+  color: var(--dark);
+}
+
+.closing {
+  margin: 12px 0 0;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.closing[data-shown='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 640px) {
+  .intro {
+    height: auto;
+  }
+  .pinned {
+    position: static;
+    padding-block: 72px;
+  }
+  .columns {
+    grid-template-columns: 1fr;
+  }
+  .thread {
+    display: none;
+  }
+  .columns li,
+  .closing {
+    color: var(--dark);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    height: auto;
+  }
+  .pinned {
+    position: static;
+    padding-block: 96px;
+  }
+}

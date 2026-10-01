@@ -43,20 +43,10 @@ html{scroll-padding-top:110px}
 .skip-link{z-index:50}
 @media(max-width:560px){html{scroll-padding-top:130px}.case-body>section{scroll-margin-top:130px}}
 
-/* Scroll-triggered copy: stable line wrapping, one reveal, no live announcements. */
-.scroll-statement{background:#606060;min-height:66svh;display:grid;place-items:center;padding:70px calc((100% - min(1080px,calc(100% - 80px)))/2)}
-.scroll-statement h2{position:relative;width:min(850px,100%);font-family:var(--serif);font-size:clamp(38px,5.2vw,72px);line-height:1.15;letter-spacing:-1px;color:#F3E7EA;text-align:center}
-.statement-space{display:block;visibility:hidden}
-.statement-typed{position:absolute;inset:0}
-.typing-caret{display:inline-block;width:2px;height:.8em;background:#F3E7EA;margin-left:3px;vertical-align:baseline}
 .guide-arrow{display:grid;place-items:center;color:#606060;font:36px/1 var(--serif);text-align:center;transition:transform .2s ease}
 .guide-arrow:hover{transform:translateY(5px)}
 .hero-arrow{margin-top:60px}
-.statement-arrow{height:112px;margin-inline:auto;text-decoration:none}
-.scroll-reveal{transition:opacity .65s ease,transform .65s ease}
-.scroll-reveal.reveal-pending{opacity:0;transform:translateY(18px)}
-@media(max-width:560px){.scroll-statement{min-height:54svh;padding:55px 28px}.scroll-statement h2{letter-spacing:-.5px}.hero-arrow{margin-top:44px}.statement-arrow{height:85px}}
-@media(prefers-reduced-motion:reduce){.scroll-reveal.reveal-pending{opacity:1;transform:none}.typing-caret{display:none}}
+@media(max-width:560px){.hero-arrow{margin-top:44px}}
 
 
 /* A rounded pointer in the thread red, everywhere. */
