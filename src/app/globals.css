@@ -12,8 +12,8 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 /* Embroidery palette: muted baby pink and the user’s lettering grey. */
-:root{--paper:#fff;--ink:#64555E;--muted:#64555E;--purple:#64555E;--line:#dacbd2}
-.site-header{border-bottom:0;padding-block:25px}.wordmark{font-size:23px}.site-header nav{color:var(--ink)}.needlepoint-hero{padding-top:8px;padding-bottom:42px}.needlepoint-hero .embroidered-name{width:min(620px,100%);margin:0 auto;line-height:0;letter-spacing:normal}.embroidered-name img{display:block;width:100%;height:auto}.name-caption{font-size:13px;color:var(--ink);margin-top:5px}.needlepoint-hero .hero-folders{gap:52px;margin:48px 0 24px}.needlepoint-hero .folder{--folder-dark:#64555E;--folder-color:#64555E;--folder-ink:#F3E7EA;width:115px;height:80px}.needlepoint-hero .folder-sheet{background:#fff;border-color:#ddd;color:#73736d;font:11px/1.5 var(--serif)}.needlepoint-hero .folder-front{box-shadow:none;border-color:#64555E}.stitched-letter{font:italic 35px Georgia,serif;color:transparent;-webkit-text-stroke:.7px #ede4e6;text-decoration:none}.folder-link:hover .folder{transform:translateY(-4px)}.intro-strip{border-bottom:0}.intro-strip>p{font-size:30px}.section-heading h2{font-size:40px;letter-spacing:-.7px}.handwritten,.art-sticker,.floating-note,.visual-caption{display:none}.project-visual{border-radius:0}.lilac,.sage,.peach,.butter{background:#ecdde3;--art-ink:#64555E}.project-visual>div{filter:grayscale(1)}.project-meta{letter-spacing:.3px}.category-tags span{border:0;padding:0 10px 0 0}.filters button{border:0;padding:6px 14px;border-radius:0}.filters button[aria-pressed=true]{background:#64555E;color:#F3E7EA}.filters button:hover:not([aria-pressed=true]){background:#ecdde3}.personal-strip{background:var(--paper);border-top:1px solid var(--line);border-radius:0;padding:30px 0;margin-bottom:40px}.footer-top h2{font-size:30px}.case-notebook{background:#ecdde3}.about-note{background:#ecdde3;transform:none}.footer-bottom{margin-top:35px}
+:root{--paper:#fff;--ink:#606060;--muted:#606060;--purple:#606060;--line:#dacbd2}
+.site-header{border-bottom:0;padding-block:25px}.wordmark{font-size:23px}.site-header nav{color:var(--ink)}.needlepoint-hero{padding-top:8px;padding-bottom:42px}.needlepoint-hero .embroidered-name{width:min(620px,100%);margin:0 auto;line-height:0;letter-spacing:normal}.embroidered-name img{display:block;width:100%;height:auto}.name-caption{font-size:13px;color:var(--ink);margin-top:5px}.needlepoint-hero .hero-folders{gap:52px;margin:48px 0 24px}.needlepoint-hero .folder{--folder-dark:#606060;--folder-color:#606060;--folder-ink:#F3E7EA;width:115px;height:80px}.needlepoint-hero .folder-sheet{background:#fff;border-color:#ddd;color:#73736d;font:11px/1.5 var(--serif)}.needlepoint-hero .folder-front{box-shadow:none;border-color:#606060}.stitched-letter{font:italic 35px Georgia,serif;color:transparent;-webkit-text-stroke:.7px #ede4e6;text-decoration:none}.folder-link:hover .folder{transform:translateY(-4px)}.intro-strip{border-bottom:0}.intro-strip>p{font-size:30px}.section-heading h2{font-size:40px;letter-spacing:-.7px}.handwritten,.art-sticker,.floating-note,.visual-caption{display:none}.project-visual{border-radius:0}.lilac,.sage,.peach,.butter{background:#ecdde3;--art-ink:#606060}.project-visual>div{filter:grayscale(1)}.project-meta{letter-spacing:.3px}.category-tags span{border:0;padding:0 10px 0 0}.filters button{border:0;padding:6px 14px;border-radius:0}.filters button[aria-pressed=true]{background:#606060;color:#F3E7EA}.filters button:hover:not([aria-pressed=true]){background:#ecdde3}.personal-strip{background:var(--paper);border-top:1px solid var(--line);border-radius:0;padding:30px 0;margin-bottom:40px}.footer-top h2{font-size:30px}.case-notebook{background:#ecdde3}.about-note{background:#ecdde3;transform:none}.footer-bottom{margin-top:35px}
 @media(max-width:560px){.site-header{gap:12px;padding-block:17px}.needlepoint-hero{padding-top:20px;padding-bottom:28px}.needlepoint-hero .embroidered-name{width:100%;margin:0 auto}.name-caption{font-size:11px;margin-top:10px}.needlepoint-hero .hero-folders{gap:27px;margin-top:38px}.needlepoint-hero .folder{width:82px;height:66px}.needlepoint-hero .folder-sheet{font-size:9px}.stitched-letter{font-size:28px}.personal-strip{display:flex;padding:24px 0}.personal-strip>a{margin-left:auto}.personal-strip h2{font-size:26px}.footer-top h2{font-size:27px}}
 
 .case-body p,.case-body li{color:var(--ink)}
@@ -42,12 +42,12 @@ html{scroll-padding-top:110px}
 @media(max-width:560px){html{scroll-padding-top:130px}.case-body>section{scroll-margin-top:130px}}
 
 /* Scroll-triggered copy: stable line wrapping, one reveal, no live announcements. */
-.scroll-statement{background:#64555E;min-height:66svh;display:grid;place-items:center;padding:70px calc((100% - min(1080px,calc(100% - 80px)))/2)}
+.scroll-statement{background:#606060;min-height:66svh;display:grid;place-items:center;padding:70px calc((100% - min(1080px,calc(100% - 80px)))/2)}
 .scroll-statement h2{position:relative;width:min(850px,100%);font-family:var(--serif);font-size:clamp(38px,5.2vw,72px);line-height:1.15;letter-spacing:-1px;color:#F3E7EA;text-align:center}
 .statement-space{display:block;visibility:hidden}
 .statement-typed{position:absolute;inset:0}
 .typing-caret{display:inline-block;width:2px;height:.8em;background:#F3E7EA;margin-left:3px;vertical-align:baseline}
-.guide-arrow{display:grid;place-items:center;color:#64555E;font:36px/1 var(--serif);text-align:center;transition:transform .2s ease}
+.guide-arrow{display:grid;place-items:center;color:#606060;font:36px/1 var(--serif);text-align:center;transition:transform .2s ease}
 .guide-arrow:hover{transform:translateY(5px)}
 .hero-arrow{margin-top:60px}
 .statement-arrow{height:112px;margin-inline:auto;text-decoration:none}
@@ -59,3 +59,58 @@ html{scroll-padding-top:110px}
 /* Latest supplied lace artwork: frame x=820, y=350, width=770, height=415. */
 .needlepoint-hero .supplied-name{aspect-ratio:770/415}
 .supplied-name img{width:249.350649%;left:-106.493506%;top:-84.337349%}
+
+/* The PNG stays visible; independent running stitches follow its exterior contours. */
+.stitched-hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:42px 0;background:#fff}
+.fabric-frame{position:relative;width:min(510px,88%);aspect-ratio:770/415;isolation:isolate}
+.stitched-hero .hero-folders{display:flex;justify-content:center;gap:76px;flex-shrink:0;margin:78px 0 0}
+.stitched-hero .folder{--folder-dark:#606060;--folder-color:#606060;--folder-ink:#F3E7EA;width:146px;height:106px}
+.stitched-hero .folder-link{font-family:Georgia,serif;font-size:23px;line-height:1.3;gap:22px;color:#777}
+.stitched-hero .folder-sheet{background:#fff;border-color:#ddd;color:#73736d;font:11px/1.5 var(--serif)}
+.stitched-hero .folder-front{box-shadow:none;border-color:#606060}
+.stitched-hero .folder-front:after{content:'';position:absolute;inset:8px;border:1px dashed #F3E7EA66;border-radius:3px}
+.stitched-hero .stitched-logo{position:absolute;inset:0;margin:0;line-height:0;letter-spacing:normal}
+.stitched-logo img{display:block;width:100%;height:auto;filter:grayscale(1)}
+/* Screen blending keeps white pixels white and adds a quiet neutral ink gradient. */
+.stitched-logo:after{content:'';position:absolute;inset:0;background:linear-gradient(150deg,#000 10%,#303030 100%);mix-blend-mode:screen;pointer-events:none}
+.stitch-details{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.letter-stitch{fill:none;stroke:#e32620;stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;animation:place-stitch var(--stitch-duration) linear both;animation-delay:var(--stitch-delay)}
+@keyframes place-stitch{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.letter-stitch{animation:none;stroke-dashoffset:0}}
+@media(max-width:560px){.stitched-hero{padding:36px 0}.fabric-frame{width:100%}.stitched-hero .hero-folders{gap:24px;margin-top:38px}.stitched-hero .folder{width:82px;height:66px}.stitched-hero .folder-sheet{font-size:9px}}
+
+.hero-education{margin:16px 0 0;font-family:Geist,Arial,sans-serif;font-size:30px;font-weight:600;line-height:1.2;letter-spacing:-1.1px;color:#686868}
+
+/* Reference proportions: close subtitle, generous gap before the folder row. */
+@media(max-width:800px){.stitched-hero .hero-folders{gap:44px}.stitched-hero .folder{width:128px;height:96px}.stitched-hero .folder-link{font-size:21px}}
+@media(max-width:560px){.stitched-hero .hero-folders{width:100%;gap:clamp(14px,5vw,28px);margin-top:56px}.stitched-hero .folder{width:clamp(78px,23vw,112px);height:76px}.stitched-hero .folder-link{font-size:17px;gap:18px}.hero-education{font-size:25px;letter-spacing:-.8px;margin-top:14px}}
+
+.folder-icon{width:52px;height:52px;stroke:#f3e7ea;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3.5 2;transform:rotate(-6deg)}
+.folder-icon-studio{transform:rotate(5deg)}
+.folder-icon-joy{stroke:#f3e7ea;transform:rotate(-5deg)}
+.folder-icon-spark{stroke:#fff;stroke-dasharray:none;stroke-width:1.5}
+@media(max-width:560px){.folder-icon{width:40px;height:40px}}
+
+/* Icons sew once, then retain identical static SVG geometry. */
+.stitched-hero .folder-front:after{content:none}
+.folder-icon .icon-stitch{stroke-dasharray:none}
+.folder-icon .icon-stitch-sewing{stroke-dasharray:1;animation:icon-sew var(--icon-duration) linear both;animation-delay:var(--icon-delay)}
+@keyframes icon-sew{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.cupcake-heart{fill:none;stroke:#e32620;stroke-width:1.7;stroke-linecap:round}
+@media(prefers-reduced-motion:reduce){.folder-icon .icon-stitch-sewing{animation:none;stroke-dashoffset:0}}
+
+/* All experimental serif lettering uses the same 40x40 source glyph grid. */
+.pixel-name-frame{aspect-ratio:940/650;width:min(420px,88%)}
+.pixel-name{display:block;width:100%;height:100%}
+.pixel-name-frame .stitched-logo:after{content:none}
+.pixel-label{display:block;height:30px;max-width:100%;color:#777}
+.pixel-label svg{display:block;height:100%;width:auto;max-width:100%}
+@media(max-width:560px){.pixel-label{height:23px}}
+
+.pixel-name-frame .letter-stitch{stroke-width:2.7}
+
+/* Smaller folders keep the focus on the closely spaced serif name. */
+.stitched-hero .folder{width:112px;height:82px}
+.stitched-hero .hero-folders{gap:62px;margin-top:58px}
+.pixel-label{height:36px}
+@media(max-width:560px){.stitched-hero .folder{width:88px;height:68px}.stitched-hero .hero-folders{gap:22px;margin-top:46px}.pixel-label{height:29px}}
