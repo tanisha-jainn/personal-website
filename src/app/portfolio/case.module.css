@@ -273,40 +273,41 @@
   color: #fff;
 }
 
-/* Screenshots shown like phones, side by side under a header. */
-.heroMedia {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  align-items: start;
-  gap: clamp(14px, 3vw, 28px);
-  margin-top: 44px;
-}
-.screen {
-  display: block;
-  width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 0 0 1px #0000000f;
-}
-.posts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(12px, 2.5vw, 22px);
-  margin-top: 28px;
-}
-.posts figure {
-  margin: 0;
-}
 /* A small closing image, centred at the end of the page. */
 .signoff {
   width: min(380px, 100%);
   margin: 96px auto 0;
   text-align: center;
 }
-@media (max-width: 640px) {
-  .posts {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .heroMedia {
-    grid-template-columns: 1fr;
-  }
+
+/* A centred link block right under a title. */
+.follow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  margin: 24px auto 0;
+  padding: 12px 22px 13px;
+  border-radius: 14px;
+  background: #f8e1df;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--thread);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.follow span {
+  font: 14px/1 Mondwest, var(--serif);
+  font-weight: 400;
+  opacity: 0.8;
+}
+.follow:hover {
+  background: var(--thread);
+  color: #fff;
+}
+/* A photo of a framed work: hung slightly off the wall with a soft shadow. */
+.framed {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 12px 18px #0000002e);
 }

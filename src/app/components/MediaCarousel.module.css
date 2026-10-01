@@ -1,0 +1,65 @@
+.carousel {
+  margin-top: 40px;
+}
+/* Slides snap into place; the row bleeds slightly past the text column so it reads as swipeable. */
+.track {
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0 0 8px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+.track li {
+  flex: 0 0 clamp(200px, 30%, 250px);
+  scroll-snap-align: start;
+}
+/* Screenshots get the same frame as the post recordings beside them. */
+.still {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: top;
+  border: 4px solid #1c1c1e;
+  border-radius: 14px;
+  background: #1c1c1e;
+}
+.caption {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #64646a;
+}
+.caption span {
+  display: block;
+  margin-bottom: 3px;
+  font: 16px/1.1 Mondwest, var(--serif);
+  color: #c4463f;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+.controls button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #ececee;
+  font-size: 16px;
+  color: #64646a;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.controls button:hover {
+  background: #c4463f;
+  color: #fff;
+}
