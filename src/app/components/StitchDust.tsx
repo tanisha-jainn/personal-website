@@ -3,11 +3,13 @@
 import { useEffect } from 'react';
 import styles from './StitchDust.module.css';
 
-// As the mouse moves, it leaves a faint running stitch behind it, like the loose thread off the spool:
-// short single stitches laid along the direction of travel, with gaps between, each fading quickly.
-// Matches the spool thread's running stitch on screen: ~7px stitches with ~3px gaps.
-const SPACING = 9.5;     // px from the start of one stitch to the start of the next
-const MAX_ALIVE = 60;
+// As the mouse moves, it now and then sheds a single loose stitch, the same size and thread as the spool's
+// running stitch, scattered just off the path at a slight tilt and fading quickly, like pixie dust.
+const SPACING = 24;      // px of movement between chances to shed a stitch
+const CHANCE = 0.65;     // not every time, so it scatters instead of drawing a line
+const SCATTER = 7;       // px a stitch can land away from the cursor
+const TILT = 0.6;        // rad a stitch can turn away from the direction of travel
+const MAX_ALIVE = 12;
 
 export default function StitchDust() {
   useEffect(() => {
@@ -17,27 +19,24 @@ export default function StitchDust() {
     layer.setAttribute('aria-hidden', 'true');
     document.body.appendChild(layer);
 
-    let anchor: { x: number; y: number } | null = null;
+    let last: { x: number; y: number } | null = null, travelled = 0;
     const onMove = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') return;
       const x = event.clientX, y = event.clientY;
-      if (!anchor) { anchor = { x, y }; return; }
-      const distance = Math.hypot(x - anchor.x, y - anchor.y);
-      if (distance < SPACING) return;
-      // Lay every stitch along the way, so a fast flick still leaves an unbroken running stitch.
-      const angle = Math.atan2(y - anchor.y, x - anchor.x);
-      const dx = Math.cos(angle) * SPACING, dy = Math.sin(angle) * SPACING;
-      for (let i = 0; i < Math.floor(distance / SPACING); i++) {
-        if (layer.childElementCount >= MAX_ALIVE) { anchor = { x, y }; break; }
-        const stitch = document.createElement('span');
-        stitch.className = styles.stitch;
-        stitch.style.left = `${anchor.x}px`;
-        stitch.style.top = `${anchor.y}px`;
-        stitch.style.setProperty('--angle', `${angle}rad`);
-        stitch.addEventListener('animationend', () => stitch.remove());
-        layer.appendChild(stitch);
-        anchor = { x: anchor.x + dx, y: anchor.y + dy };
-      }
+      if (!last) { last = { x, y }; return; }
+      const angle = Math.atan2(y - last.y, x - last.x);
+      travelled += Math.hypot(x - last.x, y - last.y);
+      last = { x, y };
+      if (travelled < SPACING) return;
+      travelled = 0;
+      if (Math.random() > CHANCE || layer.childElementCount >= MAX_ALIVE) return;
+      const stitch = document.createElement('span');
+      stitch.className = styles.stitch;
+      stitch.style.left = `${x + (Math.random() - .5) * 2 * SCATTER}px`;
+      stitch.style.top = `${y + (Math.random() - .5) * 2 * SCATTER}px`;
+      stitch.style.setProperty('--angle', `${angle + (Math.random() - .5) * 2 * TILT}rad`);
+      stitch.addEventListener('animationend', () => stitch.remove());
+      layer.appendChild(stitch);
     };
     window.addEventListener('pointermove', onMove, { passive: true });
     return () => { window.removeEventListener('pointermove', onMove); layer.remove(); };

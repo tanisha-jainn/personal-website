@@ -14,15 +14,18 @@ const charts: Record<IconKind, string[]> = {
     'xxx.xxx',
     'xxx.xxx',
   ],
-  // A tiny chubby pointer with little red twinkles by its tip: personal projects that make life easier.
+  // A tiny pointer with little red twinkles by its tip: personal projects that make life easier.
   tinkering: [
-    '.s.s...',
-    's......',
+    's.s....',
+    '.......',
+    's.x....',
     '..xx...',
     '..xxx..',
     '..xxxx.',
-    '..xx...',
-    '...xx..',
+    '..xxxxx',
+    '..xxx..',
+    '..x.xx.',
+    '.....x.',
   ],
   // A bowl with chopsticks resting in it: the cooking blog.
   cooking: [
@@ -39,18 +42,20 @@ const charts: Record<IconKind, string[]> = {
 
 // A real embroidery hoop is smooth wood, not pixels: outer ring, inner ring, and the clamp on top.
 // Only the stitching on the fabric is drawn on the pixel grid.
-const W = 40, H = 44, CX = 20, CY = 24, CELL = 2.6;
+const W = 40, H = 44, CX = 20, CY = 24;
+// Stitch size per motif: the pointer is worked a little finer so it stays tiny inside the hoop.
+const CELLS: Record<IconKind, number> = { building: 2.6, tinkering: 2.1, cooking: 2.6 };
 
 function stitchesFor(kind: IconKind) {
-  const rows = charts[kind];
+  const rows = charts[kind], CELL = CELLS[kind];
   const ox = CX - rows[0].length * CELL / 2, oy = CY - rows.length * CELL / 2;
   return rows.flatMap((row, y) => Array.from(row).flatMap((thread, x) =>
-    thread === '.' ? [] : [{ x: ox + x * CELL, y: oy + y * CELL, red: thread !== 'x', small: thread === 's' }]));
+    thread === '.' ? [] : [{ x: ox + x * CELL, y: oy + y * CELL, size: CELL, red: thread !== 'x', small: thread === 's' }]));
 }
 
 export default function FolderIcon({ kind }: { kind: IconKind }) {
-  const stitch = (x: number, y: number, small: boolean) => {
-    const inset = CELL * (small ? .32 : .15), far = CELL - inset;
+  const stitch = (x: number, y: number, size: number, small: boolean) => {
+    const inset = size * (small ? .32 : .15), far = size - inset;
     return `M${x + inset} ${y + inset}L${x + far} ${y + far}M${x + far} ${y + inset}L${x + inset} ${y + far}`;
   };
   return <svg className={styles.icon} viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
@@ -59,7 +64,7 @@ export default function FolderIcon({ kind }: { kind: IconKind }) {
     <circle className={styles.hoopOuter} cx={CX} cy={CY} r="17.4" />
     <rect className={styles.clamp} x={CX - 3} y={CY - 20.6} width="6" height="3.6" rx=".8" />
     <rect className={styles.clamp} x={CX - 1} y={CY - 22.6} width="2" height="2.4" rx=".5" />
-    {stitchesFor(kind).map(({ x, y, red, small }, i) => <path key={i} className={red ? `${styles.stitch} ${styles.redThread}` : styles.stitch}
-      d={stitch(x, y, small)} />)}
+    {stitchesFor(kind).map(({ x, y, size, red, small }, i) => <path key={i} className={red ? `${styles.stitch} ${styles.redThread}` : styles.stitch}
+      d={stitch(x, y, size, small)} />)}
   </svg>;
 }

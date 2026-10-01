@@ -6,20 +6,19 @@
   overflow: hidden;
 }
 
-/* One running stitch: a short rounded dash of thread, starting at its anchor and pointing along the path. */
+/* One loose stitch, sized like a stitch of the spool's thread on screen (~7px by 2px, rounded ends). */
 .stitch {
   position: absolute;
   width: 7px;
   height: 2px;
-  margin-top: -1px;
+  margin: -1px 0 0 -3.5px;
   border-radius: 1px;
   background: #c4463f;
-  transform-origin: 0 50%;
   transform: rotate(var(--angle));
-  animation: fade 0.55s ease-out forwards;
+  animation: shed 0.5s ease-out forwards;
 }
 
-@keyframes fade {
-  from { opacity: 0.45; }
-  to { opacity: 0; }
+@keyframes shed {
+  from { opacity: 0.55; }
+  to { opacity: 0; transform: translateY(5px) rotate(var(--angle)) scale(0.7); }
 }
