@@ -1,0 +1,315 @@
+.hero {
+  --ink: #64646a;
+  --thread: #d2342c;
+  --folder-w: clamp(76px, 21vw, 104px);
+  --highlight: #e5605a;
+  --sparkle: #f4c542;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 40px;
+  background: #fff;
+  text-align: center;
+}
+
+/* Name: Mondwest pixels, hand-narrowed; one pixel is one stitch. */
+.name {
+  width: min(425px, 100%);
+  margin: 0;
+  line-height: 0;
+}
+.name svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+/* A pale red ground under the t and j gives the stitched letters the same visual weight as the gray ones. */
+.pattern {
+  fill: #f8e1df;
+}
+.thread path {
+  fill: none;
+  stroke: var(--thread);
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+}
+.cross {
+  stroke-width: 0.3;
+  animation: cross 0.12s ease-out both;
+}
+.run {
+  stroke-width: 0.32;
+  animation: cross 0.06s linear both, vanish 0.06s linear forwards;
+}
+@keyframes vanish {
+  to { opacity: 0; }
+}
+.core {
+  fill: #c9c9cd;
+}
+.spool {
+  transform: translateX(var(--travel));
+  animation: reel var(--reel-time) ease-in-out var(--reel-start) both;
+}
+@keyframes reel {
+  from { transform: translateX(0); }
+}
+/* Two small hops while it winds the thread back in. */
+.hop {
+  animation: hop var(--reel-time) ease-in-out var(--reel-start) both;
+}
+@keyframes hop {
+  25% { transform: translateY(-1.1px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-0.6px); }
+}
+/* The thread thins as it is used, then fills back out as it is reeled in. */
+.band {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scaleX(0.9);
+  animation: unwind var(--sew-duration) ease-in-out var(--sew-start) both, rewind var(--reel-time) ease-in-out var(--reel-start) forwards;
+}
+@keyframes unwind {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0.65); }
+}
+@keyframes rewind {
+  from { transform: scaleX(0.65); }
+  to { transform: scaleX(0.9); }
+}
+@keyframes cross {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+.needle {
+  fill: none;
+  stroke: #8d8d93;
+  stroke-width: 0.26;
+  stroke-linecap: round;
+  animation-name: needle-in, sew;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-fill-mode: both;
+}
+@keyframes needle-in {
+  from { opacity: 0; }
+}
+.needleThread {
+  stroke: var(--thread);
+  stroke-width: 0.16;
+}
+.looseEnd {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 0.16;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  animation: cross 0.35s ease-out calc(var(--reel-start) + var(--reel-time)) both;
+}
+/* Filled in per stitch by StitchedHero; declared here so the name is scoped. */
+@keyframes sew {}
+
+.tagline {
+  margin: 18px 0 0;
+  font-size: clamp(22px, 3vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+/* Folders: dark back with a tab, papers peeking out, lighter front panel. */
+.folders {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 6vw, 64px);
+  margin-top: clamp(48px, 9vh, 88px);
+}
+.folderLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.folder {
+  position: relative;
+  display: block;
+  width: var(--folder-w);
+  height: calc(var(--folder-w) * 0.78);
+  transition: transform 0.3s ease;
+}
+.back {
+  position: absolute;
+  inset: calc(var(--folder-w) * 0.1) 0 0;
+  background: #3a3a3f;
+  border-radius: 6px;
+}
+.back::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 6px);
+  width: 40%;
+  height: calc(var(--folder-w) * 0.1 + 6px);
+  background: inherit;
+  border-radius: 6px 6px 0 0;
+  clip-path: polygon(0 0, 76% 0, 100% 100%, 0 100%);
+}
+/* Screen grabs tucked in the folder; on hover they rise out and fan above it. */
+.grab {
+  --tuck: rotate(-3deg);
+  --fan: translate(-58%, -92%) rotate(-12deg);
+  position: absolute;
+  top: calc(var(--folder-w) * 0.12);
+  left: 16%;
+  width: 68%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 0 0.5px #0000001f, 0 4px 10px -4px #00000033;
+  transform: var(--tuck);
+  transform-origin: 50% 100%;
+  transition: transform 0.45s cubic-bezier(0.3, 1.35, 0.5, 1);
+}
+.grab:nth-of-type(2) {
+  --tuck: translateY(4%) rotate(2deg);
+  --fan: translate(0, -112%) rotate(0deg);
+  transition-delay: 0.04s;
+}
+.grab:nth-of-type(3) {
+  --tuck: translateY(8%) rotate(-1deg);
+  --fan: translate(58%, -92%) rotate(12deg);
+  transition-delay: 0.08s;
+}
+.grab img {
+  object-fit: cover;
+  object-position: top;
+}
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 8%;
+  height: 100%;
+  padding: 10%;
+  background: #f6f6f7;
+}
+.placeholder i {
+  height: 12%;
+  width: 55%;
+  background: #d6d6da;
+  border-radius: 1px;
+}
+.placeholder b {
+  flex: 1;
+  background: #e6e6e9;
+  border-radius: 1px;
+}
+.front {
+  position: absolute;
+  inset: calc(var(--folder-w) * 0.24) 0 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #545458 0%, #68686d 100%);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 #ffffff59, 0 10px 18px -12px #0000008c;
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(0.3, 1.2, 0.5, 1);
+}
+.label {
+  padding: 3px 8px 4px;
+  border-radius: 3px;
+  font-family: Mondwest, var(--serif);
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1;
+  color: #747577;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+.sparkle {
+  position: absolute;
+  height: auto;
+  fill: var(--sparkle);
+  opacity: 0;
+  transform: translateY(8px) scale(0) rotate(-30deg);
+  transition: opacity 0.15s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.folderLink:hover .folder,
+.folderLink:focus-visible .folder {
+  transform: translateY(-4px);
+}
+.folderLink:hover,
+.folderLink:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+.folderLink:hover .grab,
+.folderLink:focus-visible .grab {
+  transform: var(--fan) scale(1.25);
+}
+/* The front swings down so the folder is fully open. */
+.folderLink:hover .front,
+.folderLink:focus-visible .front {
+  transform: perspective(500px) rotateX(-58deg);
+}
+.folderLink:hover .label,
+.folderLink:focus-visible .label,
+.folderLink:active .label {
+  background: var(--highlight);
+  color: #fff;
+}
+.folderLink:hover .sparkle,
+.folderLink:focus-visible .sparkle {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+  transition: opacity 0.15s ease, transform 0.45s cubic-bezier(0.34, 1.8, 0.5, 1);
+  animation: twinkle 1.6s ease-in-out 0.5s infinite;
+}
+@keyframes twinkle {
+  50% { transform: scale(0.75) rotate(15deg); }
+}
+
+/* Folder icons: a smooth embroidery hoop holding fabric, with a pixel motif cross-stitched onto it. */
+.icon {
+  height: 88%;
+  width: auto;
+}
+.fabric {
+  fill: #f3f3f4;
+}
+.hoopInner {
+  fill: none;
+  stroke: #9d9da3;
+  stroke-width: 0.9;
+}
+.hoopOuter {
+  fill: none;
+  stroke: #cfcfd4;
+  stroke-width: 2.4;
+}
+.clamp {
+  fill: #cfcfd4;
+}
+.stitch {
+  fill: none;
+  stroke: #5e5e63;
+  stroke-width: 0.65;
+  stroke-linecap: round;
+}
+.stitch.redThread {
+  stroke: var(--thread);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .run {
+    display: none;
+  }
+  .thread path, .spool, .hop, .band, .needle, .looseEnd, .folderLink:hover .sparkle {
+    animation: none;
+  }
+}

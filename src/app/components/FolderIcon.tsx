@@ -1,48 +1,67 @@
-'use client';
+import styles from './StitchedHero.module.css';
 
-import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
+export type IconKind = 'building' | 'tinkering' | 'cooking';
 
-type Kind = 'portfolio' | 'studio' | 'joy';
-// Separate continuous contours prevent stitches from jumping between details.
-const shapes: Record<Kind, string[]> = {
-  portfolio: ['M17 20H47Q52 20 52 25V45Q52 50 47 50H17Q12 50 12 45V25Q12 20 17 20Z', 'M24 20V15Q24 12 27 12H37Q40 12 40 15V20', 'M12 31Q32 43 52 31', 'M29 32H35V40H29Z'],
-  studio: ['M17 43L14 54L25 51L53 23Q56 20 53 17L50 14Q47 11 44 14L17 43Z', 'M17 43L25 51', 'M39 19L48 28', 'M15 13V23', 'M10 18H20', 'M43 44V56', 'M37 50H49'],
-  joy: ['M16 36H48L43 56H21L16 36Z', 'M26 41L28 52', 'M38 41L36 52', 'M15 35C11 30 15 24 21 24C20 18 26 14 32 17C38 14 44 18 43 24C49 24 53 30 49 35Z', 'M32 17S23 12 23 7C23 2 30 1 32 6C34 1 41 2 41 7C41 12 32 17 32 17Z'],
+// Cross-stitch charts sewn onto the fabric inside the hoop: x = gray thread, o = red thread.
+const charts: Record<IconKind, string[]> = {
+  // Stacked blocks: work across product, engineering and marketing.
+  building: [
+    '..ooo..',
+    '..ooo..',
+    '..ooo..',
+    'xxx.xxx',
+    'xxx.xxx',
+    'xxx.xxx',
+  ],
+  // A pixel cursor mid-click: personal projects that make life easier.
+  tinkering: [
+    'o.o....',
+    '.......',
+    'o.x....',
+    '..xx...',
+    '..xxx..',
+    '..xxxx.',
+    '..xxxxx',
+    '..xxx..',
+    '..x.xx.',
+    '.....x.',
+  ],
+  // A cupcake: cherry, puffy frosting that overhangs, and a pleated wrapper. For the cooking blog.
+  cooking: [
+    '....ooo....',
+    '....xxx....',
+    '..xxxxxxx..',
+    '.xxxxxxxxx.',
+    'xxxxxxxxxxx',
+    '.xxxxxxxxx.',
+    '.ooooooooo.',
+    '.oxoxoxoxo.',
+    '..oxoxoxo..',
+    '..oxoxoxo..',
+    '...ooooo...',
+  ],
 };
 
-type Stitch = { d: string; heart: boolean };
+// A real embroidery hoop is smooth wood, not pixels: outer ring, inner ring, and the clamp on top.
+// Only the stitching on the fabric is drawn on the pixel grid.
+const W = 40, H = 44, CX = 20, CY = 24, CELL = 2.6;
 
-export default function FolderIcon({ kind }: { kind: Kind }) {
-  const geometry = useRef<SVGGElement>(null);
-  const [stitches, setStitches] = useState<Stitch[]>([]);
-  const [finished, setFinished] = useState(false);
+function stitchesFor(kind: IconKind) {
+  const rows = charts[kind];
+  const ox = CX - rows[0].length * CELL / 2, oy = CY - rows.length * CELL / 2;
+  return rows.flatMap((row, y) => Array.from(row).flatMap((thread, x) =>
+    thread === '.' ? [] : [{ x: ox + x * CELL, y: oy + y * CELL, red: thread === 'o' }]));
+}
 
-  useLayoutEffect(() => {
-    const result: Stitch[] = [];
-    geometry.current?.querySelectorAll('path').forEach((path, index) => {
-      const heart = kind === 'joy' && index === shapes.joy.length - 1;
-      const length = path.getTotalLength();
-      const count = Math.max(1, Math.round(length / (heart ? 3.6 : 5.5)));
-      const step = length / count;
-      for (let i = 0; i < count; i++) {
-        const points = [0, .16, .32, .48, .64].map(t => path.getPointAtLength((i + t) * step));
-        result.push({ heart, d: points.map((p, j) => `${j ? 'L' : 'M'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ') });
-      }
-    });
-    setStitches(result);
-    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motion.matches) setFinished(true);
-    const stop = () => { if (motion.matches) setFinished(true); };
-    motion.addEventListener('change', stop);
-    return () => motion.removeEventListener('change', stop);
-  }, [kind]);
-
-  return <svg className={`folder-icon folder-icon-${kind}`} viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false" data-stitched={finished}>
-    <g ref={geometry} visibility="hidden">{shapes[kind].map((d, i) => <path key={i} d={d} />)}</g>
-    {stitches.map(({ d, heart }, i) => <path key={i} d={d} pathLength={1}
-      className={`icon-stitch${heart ? ' cupcake-heart' : ''}${finished ? '' : ' icon-stitch-sewing'}`}
-      style={finished ? undefined : { '--icon-delay': `${0.2 + i * 2.6 / stitches.length}s`, '--icon-duration': `${2.6 / stitches.length}s` } as CSSProperties}
-      onAnimationEnd={i === stitches.length - 1 ? () => setFinished(true) : undefined}
-    />)}
+export default function FolderIcon({ kind }: { kind: IconKind }) {
+  const inset = CELL * .15, far = CELL - inset;
+  return <svg className={styles.icon} viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
+    <circle className={styles.fabric} cx={CX} cy={CY} r="15.4" />
+    <circle className={styles.hoopInner} cx={CX} cy={CY} r="15.6" />
+    <circle className={styles.hoopOuter} cx={CX} cy={CY} r="17.4" />
+    <rect className={styles.clamp} x={CX - 3} y={CY - 20.6} width="6" height="3.6" rx=".8" />
+    <rect className={styles.clamp} x={CX - 1} y={CY - 22.6} width="2" height="2.4" rx=".5" />
+    {stitchesFor(kind).map(({ x, y, red }, i) => <path key={i} className={red ? `${styles.stitch} ${styles.redThread}` : styles.stitch}
+      d={`M${x + inset} ${y + inset}L${x + far} ${y + far}M${x + far} ${y + inset}L${x + inset} ${y + far}`} />)}
   </svg>;
 }
