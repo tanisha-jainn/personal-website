@@ -46,7 +46,7 @@ const SPOOL = [
   '..DDDDDDD..',
 ];
 const SPOOL_COLORS: Record<string, string> = {
-  L: '#b4b4b9', M: '#88888e', D: '#646469', h: '#e0564e', r: '#d2342c', w: '#b42b24', d: '#a3241e', c: '#d9d9dd',
+  L: '#b4b4b9', M: '#88888e', D: '#646469', h: '#d4625b', r: '#c4463f', w: '#a83b35', d: '#99352f', c: '#d9d9dd',
 };
 const THREAD = ['h', 'r', 'w', 'd'];
 const spoolPixel = ([x, y]: number[]) => `M${x} ${y}h${SPOOL_PX}v${SPOOL_PX + .03}h-${SPOOL_PX}z`;

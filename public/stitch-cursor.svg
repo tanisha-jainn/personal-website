@@ -2,5 +2,5 @@
   <!-- A rounded pointer in the site's thread red, with a thin white edge so it shows on dark folders.
        Round joins soften every corner. The tip, at about (4,4), is the click point. -->
   <path d="M5 4.5V23.5L10 18.8L13.4 26.4L16.6 25L13.3 17.6H20.2Z" fill="#fff" stroke="#fff" stroke-width="5.5" stroke-linejoin="round"/>
-  <path d="M5 4.5V23.5L10 18.8L13.4 26.4L16.6 25L13.3 17.6H20.2Z" fill="#d2342c" stroke="#d2342c" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M5 4.5V23.5L10 18.8L13.4 26.4L16.6 25L13.3 17.6H20.2Z" fill="#c4463f" stroke="#c4463f" stroke-width="2.6" stroke-linejoin="round"/>
 </svg>
