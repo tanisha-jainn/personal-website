@@ -58,3 +58,5 @@ html{scroll-padding-top:110px}
 @media(max-width:560px){.scroll-statement{min-height:54svh;padding:55px 28px}.scroll-statement h2{letter-spacing:-.5px}.hero-arrow{margin-top:44px}.statement-arrow{height:85px}}
 @media(prefers-reduced-motion:reduce){.scroll-reveal.reveal-pending{opacity:1;transform:none}.typing-caret{display:none}}
 
+/* Set by NeedleCursor once the hero needle has finished sewing. */
+html.needle-cursor,html.needle-cursor *{cursor:url('/needle-cursor.svg') 2 2,auto}

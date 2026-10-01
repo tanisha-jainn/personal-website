@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { Figtree } from 'next/font/google';
 import FolderIcon, { type IconKind } from './FolderIcon';
+import NeedleCursor from './NeedleCursor';
 import name from './pixel-type.json';
 import styles from './StitchedHero.module.css';
 
@@ -109,6 +110,8 @@ const reelStart = sewEnd + REEL_PAUSE;
 // Each loose stitch disappears as the spool passes over it on the way back.
 const reelDelay = (stitch: number[][]) => reelStart + (SPOOL_X - stitch[0][0]) / (SPOOL_X - SPOOL_REST_X) * REEL_TIME;
 const [, restX, restY] = stops[stops.length - 1];
+// A beat after the last stitch, the needle leaves the name and becomes the visitor's cursor.
+const HANDOFF = sewEnd + 0.4;
 const needleKeyframes = `@keyframes ${styles.sew}{${stops.map(([t, x, y]) =>
   `${((t - SEW_START) / sewDuration * 100).toFixed(2)}%{transform:translate(${x.toFixed(2)}px,${y.toFixed(2)}px)}`).join('')}}`;
 
@@ -126,6 +129,7 @@ const sparkles = [{ x: -22, y: -112, s: 1 }, { x: 46, y: -138, s: .75 }, { x: 11
 
 export default function StitchedHero() {
   return <section className={styles.hero}>
+    <NeedleCursor at={HANDOFF} />
     <h1 className={styles.name} style={{ aspectRatio: `${name.width}/${name.height}` }}>
       <span className="sr-only">Tanisha Jain</span>
       <svg viewBox={`0 0 ${name.width} ${name.height}`} aria-hidden="true" focusable="false" shapeRendering="crispEdges">
@@ -158,7 +162,7 @@ export default function StitchedHero() {
         </g>
         <style>{needleKeyframes}</style>
         <g className={styles.needle} shapeRendering="geometricPrecision"
-          style={{ animationDuration: `.25s, ${sewDuration}s`, animationDelay: `${SEW_START - .25}s, ${SEW_START}s`,
+          style={{ animationDuration: `.25s, ${sewDuration}s, .3s`, animationDelay: `${SEW_START - .25}s, ${SEW_START}s, ${HANDOFF}s`,
             transform: `translate(${restX}px,${restY}px)` }}>
           {/* A short length of thread hangs loose from the eye, like a real threaded needle. */}
           <path className={styles.needleThread} d="M-3.15 4.72c.5 1.3 2 1.6 2.3 2.9s-.9 1.8-.3 2.7" />
