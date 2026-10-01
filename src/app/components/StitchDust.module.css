@@ -9,7 +9,7 @@
 /* One running stitch: a short rounded dash of thread, starting at its anchor and pointing along the path. */
 .stitch {
   position: absolute;
-  width: 9px;
+  width: 7px;
   height: 2px;
   margin-top: -1px;
   border-radius: 1px;
