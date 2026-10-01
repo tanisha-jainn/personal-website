@@ -30,6 +30,6 @@ export const work: Work[] = [
     date: 'summer 2022',
     categories: ['marketing'],
     kind: 'high school internship',
-    cover: { title: 'met teens' },
+    cover: { phones: ['/work/the-met/teen-fridays-reel.jpg', '/work/the-met/instagram-feed.jpg', '/work/the-met/post-scroll.jpg'] },
   },
 ];

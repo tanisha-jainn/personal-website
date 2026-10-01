@@ -5,7 +5,7 @@ import styles from './CaseVideo.module.css';
 
 // A muted, looping clip that plays only while on screen, with a small button to turn the sound on.
 export default function CaseVideo({ src, poster, label, shape = 'phone' }: {
-  src: string; poster: string; label: string; shape?: 'phone' | 'wide';
+  src: string; poster: string; label: string; shape?: 'phone' | 'post' | 'wide';
 }) {
   const video = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
