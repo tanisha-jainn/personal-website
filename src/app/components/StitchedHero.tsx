@@ -116,7 +116,7 @@ const needleKeyframes = `@keyframes ${styles.sew}{${stops.map(([t, x, y]) =>
 // empty and a placeholder card is drawn; then drop images in /public/folders and set `src` and `alt`.
 type Grab = { src?: string; alt?: string };
 const folders: { label: string; href: string; icon: IconKind; grabs: [Grab, Grab, Grab] }[] = [
-  { label: 'building', href: '/portfolio', icon: 'building', grabs: [{}, {}, {}] },
+  { label: 'building', href: '/#work', icon: 'building', grabs: [{}, {}, {}] },
   { label: 'tinkering', href: '/portfolio', icon: 'tinkering', grabs: [{}, {}, {}] },
   { label: '& cooking', href: '/passions', icon: 'cooking', grabs: [{}, {}, {}] },
 ];

@@ -47,7 +47,7 @@ const work = [
 
 export default function PoshmarkCaseStudy() {
   return <article className={`${styles.page} ${figtree.className}`}>
-    <Link className={styles.back} href="/portfolio">← all work</Link>
+    <Link className={styles.back} href="/#work">← all work</Link>
 
     <header className={styles.header}>
       <p className={styles.eyebrow}>poshmark · product intern · summer 2025</p>

@@ -1,0 +1,138 @@
+.section {
+  --ink: #64646a;
+  --dark: #3c3c41;
+  --faint: #9a9aa0;
+  --thread: #c4463f;
+  width: min(940px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 96px 0 120px;
+  scroll-margin-top: 80px;
+}
+
+.intro {
+  text-align: center;
+}
+.intro h2 {
+  margin: 0;
+  font: 44px/1 Mondwest, var(--serif);
+  color: var(--ink);
+}
+.intro p {
+  margin: 12px 0 0;
+  font-size: 16px;
+  color: var(--ink);
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.tabs button {
+  padding: 6px 14px 7px;
+  border: 0;
+  border-radius: 999px;
+  background: #ececee;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.tabs button:hover {
+  background: #f8e1df;
+  color: var(--thread);
+}
+.tabs button[aria-pressed='true'] {
+  background: var(--thread);
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 28px;
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.card {
+  display: block;
+}
+
+/* Cover: three phones on a soft gray card, the middle one raised. */
+.cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  background: #f1f1f2;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.phone {
+  flex: none;
+  height: 68%;
+  aspect-ratio: 9 / 16;
+  border: 3px solid #1c1c1e;
+  border-radius: 10px;
+  background: #1c1c1e center / cover no-repeat;
+  box-shadow: 0 6px 14px -8px #00000059;
+}
+.phone:nth-child(2) {
+  transform: translateY(-6%);
+}
+.card:hover .cover,
+.card:focus-visible .cover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin: 16px 0 0;
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+}
+.card:hover h3 {
+  color: var(--thread);
+}
+.card p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 10px;
+  font: 15px/1 Mondwest, var(--serif);
+  color: var(--thread);
+}
+.tags .kind {
+  color: var(--faint);
+}
+.date {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
