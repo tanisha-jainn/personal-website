@@ -20,11 +20,17 @@ const slides: Slide[] = [
   { src: '/work/the-met/interns.jpg', title: 'the team', note: 'The summer ’22 interns, signing off: “MET WHO?”' },
 ];
 
+const experiments = [
+  { title: 'trend formats', body: 'Pieces modeled on what was going viral, like the “POV: you’re a teen in NYC” reel.' },
+  { title: 'day in the life', body: 'Short videos following people around the museum, like a fellow intern in photograph conservation.' },
+  { title: 'a weekly series', body: '“Join us on Friday” went out every week, so it had to be recognizable at a glance.' },
+];
+
 export default function MetCaseStudy() {
   return <article className={`${styles.page} ${figtree.className}`}>
     <Link className={styles.back} href="/#work">← all work</Link>
 
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles.centered}`}>
       <p className={styles.eyebrow}>the met · digital media intern (high school) · summer 2022</p>
       <h1>Making a museum feel like it’s for teens.</h1>
       <a className={styles.follow} href="https://www.instagram.com/metteens/" target="_blank" rel="noreferrer">
@@ -34,51 +40,47 @@ export default function MetCaseStudy() {
         This is where my marketing started. As a high school intern on The Met’s digital media team, I helped run
         Met Teens, the museum’s account for teenagers.
       </p>
-      <MediaCarousel slides={slides} label="Posts I worked on for Met Teens" />
     </header>
+    <MediaCarousel slides={slides} label="Posts I worked on for Met Teens" />
 
-    <section className={styles.section}>
-      <h2>The goal</h2>
-      <p>
-        The Met is a place rich with history, and also with pop culture, from the art on its walls to the Met Gala.
-        Our job was to show teenagers where they fit into all of it.
+    <section className={styles.split}>
+      <h2>the goal</h2>
+      <p className={styles.lede}>
+        The Met holds centuries of history, and moments of pop culture like the Met Gala. Our job was to show teens
+        where they fit in.
       </p>
     </section>
 
-    <section className={styles.section}>
-      <h2>A summer of experiments</h2>
-      <p>
-        The challenge wasn’t making one kind of post. It was making content that felt current, so the museum showed
-        up in teens’ feeds alongside everything else they were watching:
-      </p>
-      <ul className={styles.list}>
-        <li><b>Trend formats,</b> modeled on what was going viral at the time, like the “POV: you’re a teen in NYC” Teen Fridays reel.</li>
-        <li><b>Short-form video and day-in-the-life content,</b> like following a fellow intern through photograph conservation.</li>
-        <li><b>A recurring series.</b> “Join us on Friday” went out every week, so it had to be recognizable at a glance.</li>
-      </ul>
-      <p>
-        Underneath all of it was a design question: how do you market an institution as storied as The Met so it
-        feels like it belongs to a younger audience? And working alongside so many other interns and staff, I learned
-        how to share ideas, and build on other people’s, in a big group.
-      </p>
+    <section className={styles.split}>
+      <h2>a summer of experiments</h2>
+      <div>
+        <p>Not one kind of post, but content that felt current enough to sit in teens’ feeds next to everything else.</p>
+        <ul className={styles.cards}>
+          {experiments.map(({ title, body }) => <li key={title}><span>{title}</span>{body}</li>)}
+        </ul>
+        <p>
+          Underneath it all was a design question: how do you make an institution this storied feel like it belongs
+          to a younger audience? And with so many interns and staff, I learned to share ideas, and build on other
+          people’s, in a big group.
+        </p>
+      </div>
     </section>
 
-    <section className={styles.section}>
-      <h2>What I took away</h2>
-      <p>
-        As someone who grew up loving art and history, this was a dream. It’s also what sparked my love for digital
-        media, and for figuring out what it can do.
-      </p>
-      <ul className={styles.list}>
-        <li><b>Know your audience, really well.</b> It’s the most fundamental thing I’ve learned in marketing, and it holds in product and engineering too: keep the user top of mind.</li>
-        <li><b>I do my best work when I’m engrossed in what I’m building.</b> Loving the art made me care about every post.</li>
-      </ul>
+    <section className={styles.split}>
+      <h2>what i took away</h2>
+      <div>
+        <p>Growing up loving art and history, this was a dream. It’s also what sparked my love for digital media.</p>
+        <ol className={styles.takeaways}>
+          <li><b>Know your audience, really well.</b>In marketing, product or engineering, keep the user top of mind.</li>
+          <li><b>I do my best work when I’m engrossed in what I’m building.</b>Loving the art made me care about every post.</li>
+        </ol>
+      </div>
     </section>
 
-    {/* A little sign-off: my favorite painting in the museum, already in its own gilded frame. */}
+    {/* A little sign-off: my favorite painting in the museum. */}
     <figure className={styles.signoff}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/work/the-met/fave-painting-cropped.jpg" alt="La Grenouillère by Claude Monet, in its gilded frame at The Met" className={styles.framed} />
+      <img src="/work/the-met/fave-painting.jpg" alt="La Grenouillère by Claude Monet, hanging at The Met" className={styles.still} />
       <figcaption><span>my favorite painting at the met</span>La Grenouillère, Claude Monet</figcaption>
     </figure>
   </article>;
