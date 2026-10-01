@@ -90,12 +90,9 @@
   stroke: #8d8d93;
   stroke-width: 0.26;
   stroke-linecap: round;
-  animation-name: needle-in, sew, handoff;
-  animation-timing-function: ease-out, ease-in-out, ease-in;
-  animation-fill-mode: both, both, forwards;
-}
-@keyframes handoff {
-  to { opacity: 0; }
+  animation-name: needle-in, sew;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-fill-mode: both;
 }
 @keyframes needle-in {
   from { opacity: 0; }
@@ -309,10 +306,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* No sewing to watch, so the needle starts out as the cursor. */
-  .needle {
-    display: none;
-  }
   .run {
     display: none;
   }
